@@ -1,0 +1,33 @@
+{
+  "name": "guidekit-web",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "description": "Region-aware web template for multi-location guide sites.",
+  "exports": {
+    ".": "./src/guidekit/index.ts",
+    "./sample-content": "./src/sample-content/index.ts",
+    "./styles": "./src/styles.css"
+  },
+  "files": [
+    "src",
+    "tools",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && tsx tools/postbuild.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "tsx tools/check-site.ts",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.13"
+  }
+}

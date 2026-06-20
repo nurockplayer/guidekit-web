@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+*.log
+test-results/
+playwright-report/
+.playwright/
+.env
+.env.*
+!.env.example
+package-lock.json
+yarn.lock
+bun.lock
+bun.lockb
