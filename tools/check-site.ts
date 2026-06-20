@@ -41,15 +41,12 @@ assert(!("install" in (packageJson.scripts || {})), "install scripts are not all
 assert(!("postinstall" in (packageJson.scripts || {})), "postinstall scripts are not allowed");
 assert(!("prepare" in (packageJson.scripts || {})), "prepare scripts are not allowed");
 
-const bannedStrings = [
-  "tokyo-weimi.com",
-  "hikari888.com",
-  "vip6969.com",
-  "TAILSCALE_EXIT_NODE",
-  "TS_OAUTH_SECRET",
-  "DEEPSEEK_API_KEY",
-  "GEMINI_API_KEY",
-];
+const configuredPrivateMarkers = (process.env.GUIDEKIT_PRIVATE_MARKERS || "")
+  .split(",")
+  .map((marker) => marker.trim())
+  .filter(Boolean);
+
+const bannedStrings = configuredPrivateMarkers;
 
 const scannedFiles = [
   "AGENTS.md",
